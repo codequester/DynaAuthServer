@@ -16,6 +16,10 @@ import org.springframework.security.oauth2.provider.TokenRequest;
 import org.springframework.security.oauth2.provider.token.AbstractTokenGranter;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 public class AuthServerCustomGrantHandler extends AbstractTokenGranter 
 {
 	

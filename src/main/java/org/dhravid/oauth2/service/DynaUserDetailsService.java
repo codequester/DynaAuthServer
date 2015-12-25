@@ -13,6 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
 import org.springframework.stereotype.Service;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 @Service
 public class DynaUserDetailsService implements UserDetailsService 
 {

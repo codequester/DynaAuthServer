@@ -5,6 +5,10 @@ import org.springframework.security.oauth2.provider.token.AuthorizationServerTok
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 public interface AuthServerTokenService extends AuthorizationServerTokenServices
 {
 	public void setTokenStore(TokenStore tokenStore);

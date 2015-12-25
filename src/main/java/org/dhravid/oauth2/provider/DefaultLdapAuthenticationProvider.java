@@ -2,13 +2,16 @@ package org.dhravid.oauth2.provider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ldap.core.support.LdapContextSource;
-import org.springframework.security.ldap.authentication.BindAuthenticator;
-import org.springframework.security.ldap.authentication.LdapAuthenticationProvider;
-import org.springframework.security.ldap.authentication.LdapAuthenticator;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.ldap.authentication.BindAuthenticator;
+import org.springframework.security.ldap.authentication.LdapAuthenticationProvider;
 import org.springframework.stereotype.Component;
+
+/*
+ * @author Shankar Govindarajan
+*/
 
 @Component("defaultLdapAuthentication")
 public class DefaultLdapAuthenticationProvider implements AuthenticationProvider

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
@@ -20,6 +19,10 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+/*
+ * @author Shankar Govindarajan
+*/
 
 @Service
 public class DynaAuthServerTokenService extends DefaultTokenServices implements AuthServerTokenService 

@@ -9,6 +9,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.stereotype.Service;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 @Service
 public class AuthUserDetailsLocator 
 {

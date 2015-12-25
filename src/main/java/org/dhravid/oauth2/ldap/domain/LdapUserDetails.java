@@ -14,6 +14,10 @@ import org.springframework.ldap.odm.annotations.Transient;
 
 import lombok.Data;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 @Entry(objectClasses={"inetOrgPerson","organizationalPerson","person","top"}, base="ou=users")
 public @Data class LdapUserDetails 
 {

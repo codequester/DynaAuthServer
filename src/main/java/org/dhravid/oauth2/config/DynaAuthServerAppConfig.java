@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.dhravid.oauth2.service.AuthServerCustomGrantHandler;
 import org.dhravid.oauth2.service.AuthServerTokenService;
 import org.dhravid.oauth2.service.DynaClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,9 @@ import org.springframework.security.oauth2.provider.CompositeTokenGranter;
 import org.springframework.security.oauth2.provider.TokenGranter;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
-import org.dhravid.oauth2.service.AuthServerCustomGrantHandler;
-
+/*
+ * @author Shankar Govindarajan
+*/
 
 @Configuration
 @EnableAutoConfiguration

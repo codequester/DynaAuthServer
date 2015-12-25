@@ -6,6 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
+/*
+ * @author Shankar Govindarajan
+*/
+
 @Document(collection = "users")
 public @Data class MongoUserDetails
 {

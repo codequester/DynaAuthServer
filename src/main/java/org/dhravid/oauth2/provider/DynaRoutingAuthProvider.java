@@ -1,11 +1,10 @@
 package org.dhravid.oauth2.provider;
 
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
+
 import org.apache.commons.lang3.StringUtils;
-import org.dhravid.oauth2.service.AuthServerJwtEnhancer;
-import org.dhravid.oauth2.service.AuthServerTokenService;
 import org.dhravid.oauth2.service.DynaClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +16,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.stereotype.Component;
+
+/*
+ * @author Shankar Govindarajan
+*/
 
 @Component("dynaRoutingAuthProvider")
 public class DynaRoutingAuthProvider implements AuthenticationProvider 
