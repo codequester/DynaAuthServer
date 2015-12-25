@@ -1,0 +1,16 @@
+org\dhravid\oauth2\service\AuthUserDetailsService.class
+org\dhravid\oauth2\domain\AuthUserDetails.class
+org\dhravid\oauth2\service\AuthUserDetailsLocator.class
+org\dhravid\oauth2\mongo\domain\MongoUserDetails.class
+org\dhravid\oauth2\ldap\service\LdapUserDetailsService.class
+org\dhravid\oauth2\mongo\service\MongoUserDetailsService.class
+org\dhravid\oauth2\provider\DefaultLdapAuthenticationProvider.class
+org\dhravid\oauth2\provider\DynaRoutingAuthProvider.class
+org\dhravid\oauth2\service\DynaUserDetailsService.class
+org\dhravid\oauth2\config\DynaAuthServerAppConfig.class
+org\dhravid\oauth2\service\AuthServerTokenService.class
+org\dhravid\oauth2\mongo\repository\MongoUserDetailsRepository.class
+org\dhravid\oauth2\service\DefaultAuthServerTokenService.class
+org\dhravid\oauth2\ldap\repository\LdapUserDetailsRepository.class
+org\dhravid\oauth2\config\AuthenticationConfig.class
+org\dhravid\oauth2\ldap\domain\LdapUserDetails.class
