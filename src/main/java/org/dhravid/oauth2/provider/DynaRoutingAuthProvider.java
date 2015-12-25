@@ -16,10 +16,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
 import org.springframework.security.oauth2.provider.ClientDetails;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.stereotype.Component;
 
 @Component("dynaRoutingAuthProvider")
@@ -36,18 +32,11 @@ public class DynaRoutingAuthProvider implements AuthenticationProvider
 		
 	private DaoAuthenticationProvider daoAuthProvider;
 	
-	
-	private AuthServerTokenService tokenService;
-	
 	@Autowired
-	private DataSource dataSource;
-	
-	@Autowired
-	public DynaRoutingAuthProvider(UserDetailsService userDetailsService, AuthServerTokenService tokenService) throws Exception
+	public DynaRoutingAuthProvider(UserDetailsService userDetailsService) throws Exception
 	{
 		daoAuthProvider = new DaoAuthenticationProvider();
 		daoAuthProvider.setUserDetailsService(userDetailsService);
-		this.tokenService = tokenService;
 	}
 	
 	@Override
@@ -55,7 +44,6 @@ public class DynaRoutingAuthProvider implements AuthenticationProvider
 	{
 		String clientId = request.getParameter(OAuth2Utils.CLIENT_ID);
 		ClientDetails clientDetails = dynaClientDetailsService.loadClientByClientId(clientId);
-		setTokenStoreForClient(clientDetails);
 		return getAuthenticationProviderForClient(clientDetails).authenticate(authentication);
 	}
 	
@@ -75,33 +63,9 @@ public class DynaRoutingAuthProvider implements AuthenticationProvider
 		return authProviderForClient;
 	}
 	
-	private void setTokenStoreForClient(ClientDetails clientDetails)
-	{
-		Map<String, Object> additionalClientInformation = clientDetails.getAdditionalInformation();
-		String tokenStoreName = (String)additionalClientInformation.get("token_store");
-		if("jdbcTokenStore".equals(tokenStoreName))
-		{
-			tokenService.setTokenStore(new JdbcTokenStore(dataSource));
-			tokenService.setTokenEnhancer(null);
-		}
-		else if("jwtTokenStore".equals(tokenStoreName))
-		{
-			JwtAccessTokenConverter tokenEnhancer = null;
-			try {
-				tokenEnhancer = new AuthServerJwtEnhancer();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			TokenStore defaultTokenStore = new JwtTokenStore(tokenEnhancer);
-			tokenService.setTokenStore(defaultTokenStore);
-			tokenService.setTokenEnhancer(tokenEnhancer);
-		}
-	}
-
 	@Override
 	public boolean supports(Class<?> authentication) 
 	{
 		return true;
-	}
-
+	}	
 }
